@@ -75,6 +75,10 @@ const logoutUSer =asyncHandler(async (req,res)=>{
 // route get/api/user/profile
 // access private
 const getUserProfile =asyncHandler(async (req,res)=>{
+    // Check if req.user exists before trying to access its properties
+    if (!req.user) {
+      return res.status(401).json({ message: 'Not authorized, no user found' });
+    }
   const user = {
     _id: req.user._id,
     name: req.user.name,
