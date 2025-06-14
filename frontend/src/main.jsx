@@ -16,14 +16,14 @@ import RegisterScreen from './screens/RegisterScreen';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
-      <Route index={true} path='/' element={<HomeScreen />} />
+      <Route index element={<HomeScreen />} />
       <Route path='/login' element={<LoginScreen />} />
       <Route path='/register' element={<RegisterScreen />} />
     </Route>
   )
 );
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('root') || document.createElement('div')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
